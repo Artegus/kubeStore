@@ -1,0 +1,29 @@
+version: '3'
+services:
+  php:
+    build: ./confPHP
+    ports:
+      - 8080:80
+    volumes:
+      - ./kubeStore:/var/www/html
+  mysql:
+    image: mysql:5.7.28
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 9080:80
+    environment:
+      - PMA_HOST=mysql
+    depends_on:
+      - mysql
+
+
