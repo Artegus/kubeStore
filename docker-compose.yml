@@ -5,7 +5,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./kubeStore:/var/www/html
+      - ./kubeStore/public:/var/www/html
   mysql:
     image: mysql:5.7.28
     ports:
