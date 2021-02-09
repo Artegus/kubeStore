@@ -1,0 +1,36 @@
+/* Font */
+
+
+/* Start Btn Login */
+.btn-action a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    /* border: 1px solid grey;
+    padding: 10px; */
+}
+.btn-action:hover a{
+    color: white;
+}
+/* End Btn Login */
+
+/* Start Register Form */
+.form-basic {
+    border-radius: 10px;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    padding: 50px;
+    width: 70vw;
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+#main {
+    margin-top: 10vh;
+}
+/* End Register Form */
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 600px;
+    }
+}
