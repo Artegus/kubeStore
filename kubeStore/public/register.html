@@ -14,7 +14,7 @@
         crossorigin="anonymous" />
     <!-- Style -->
     <link rel="stylesheet" href="./css/style.css">
-    <title>KubeStore - Welcome to the best rubik's cube store</title>
+    <title>KubeStore - Register</title>
 </head>
 
 <body>
@@ -73,13 +73,16 @@
     <main id="main">
         <!-- Start Form Login -->
         <div class="container flex-column justify-content-center form-basic" >
-            <form class="col-lg-6 m-auto offset-lg3 form-login">
+
+            <form action="#" method="POST" class="col-lg-6 m-auto offset-lg3 form-login">
+                <h2>Register</h2>
+                <hr class="my-4">
                 <!-- Component Name and Last Name -->
                 <div class="row">
                     <!-- First Name -->
                     <div class="col">
                         <label class="form-label" for="firstName">First Name</label>
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        <input name="firstName" id="firstName" type="text" class="form-control" placeholder="First name" required>
                         <div class="invalid-feedback">
                             Error menssage
                         </div>
@@ -88,7 +91,7 @@
                     <!-- Last Name - Surname -->
                     <div class="col">
                         <label class="form-label" for="lastName">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                        <input name="lastName" id="lastName" type="text" class="form-control" placeholder="Last name" required>
                         <div class="invalid-feedback">
                             Error menssage
                         </div>
@@ -101,23 +104,23 @@
                 <!-- Gender -->
                 <div class="my-3">
                     <div class="form-check">
-                        <input id="male" name="gender" type="radio" class="form-check-input" required>
+                        <input id="male" name="gender" type="radio" class="form-check-input" value="1" required>
                         <label class="form-check-label" for="male">Male</label>
                     </div>
                     <div class="form-check">
-                        <input id="female" name="gender" type="radio" class="form-check-input" required>
+                        <input id="female" name="gender" type="radio" class="form-check-input" value="2">
                         <label class="form-check-label" for="female">Female</label>
                     </div>
                     <div class="form-check">
-                        <input id="none" name="gender" type="radio" class="form-check-input" required checked>
+                        <input id="none" name="gender" type="radio" class="form-check-input" value="0">
                         <label class="form-check-label" for="none">None</label>
                     </div>
                 </div>
                 <!-- !Gender -->
                 <!-- Address-->
                 <div class="col">
-                    <label class="form-label" for="">Address</label>
-                    <input type="text" class="form-control" placeholder="Address" aria-label="Address">
+                    <label class="form-label" for="address">Address</label>
+                    <input name="address" id="address" type="text" class="form-control" placeholder="Address Line" required >
                     <div class="invalid-feedback">
                         Error menssage
                     </div>
@@ -135,7 +138,7 @@
                 <!-- Password -->
                 <div class="col">
                     <label class="form-label" for="password">Password</label>
-                    <input id="password" name="password" type="password" class="form-control" minlength="8" maxlength="8" size="8" required>
+                    <input id="password" name="password" type="password" class="form-control" minlength="8" required>
                     <div class="invalid-feedback">
                         Error menssage
                     </div>
@@ -144,7 +147,7 @@
                 <!-- Repeat Password -->
                 <div class="col">
                     <label class="form-label" for="password">Repeat your password</label>
-                    <input id="repassword" name="repassword" type="password" class="form-control" minlength="8" maxlength="8" size="8" required>
+                    <input id="repassword" name="repassword" type="password" class="form-control" minlength="8" required>
                     <div class="invalid-feedback">
                         Error menssage
                     </div>
