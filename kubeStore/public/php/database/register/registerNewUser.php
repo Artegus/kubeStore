@@ -9,19 +9,19 @@
 
         if(!$isFormFilled) {
             // Faltan rellenar campos
-            echo json_encode($emptyFields);
+            echo json_encode(['status' => 'error-form', 'message' => 'Empty fields', 'errors' => $emptyFields]);
         } elseif($isFormFilled && !$isFormValid) {
             // Campos invalidos
-            echo json_encode($errors);
+            echo json_encode(['status' => 'error-form', 'message' => 'Invalid fields', 'errors' => $errors]);
         } elseif ($isFormValid && $isFormFilled) {
             // Todo bien, entonces se registra el usuario
 
             $statusRegister = registerUser($user);
 
             if ($statusRegister) {
-                echo json_encode(['status' => 'ok', 'message' => 'User registered successfully']);
+                echo json_encode(['status' => 'ok', 'message' => 'You have successfully registered']);
             } else {
-                echo json_encode(['status' => 'error', 'message' => 'The email is already registered']);
+                echo json_encode(['status' => 'error-email', 'message' => 'The email is already registered. Please use another email']);
             }
         }
 

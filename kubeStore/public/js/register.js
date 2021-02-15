@@ -18,7 +18,7 @@ window.onload = (function () {
     firstName.on('blur', {}, (e) => {
         let value = e.target.value
         let valueTrimmed = value.trim()
-        
+
         $('.error-firstname').remove()
 
         if (valueTrimmed == '') {
@@ -127,18 +127,17 @@ window.onload = (function () {
         // Envio datos a la base de datos
         if (valid) {
             let usuario = {
-                'user_name' : firstName.val().trim(),
+                'user_name': firstName.val().trim(),
                 'user_surname': lastName.val().trim(),
-                'user_gender' : $('input[name="gender"]:checked').val().trim(),
-                'user_address' : address.val().trim(),
-                'user_email' : email.val().trim(),
-                'user_password' : password.val().trim()
+                'user_gender': $('input[name="gender"]:checked').val().trim(),
+                'user_address': address.val().trim(),
+                'user_email': email.val().trim(),
+                'user_password': password.val().trim()
             }
             $.post('php/database/register/registerNewUser.php', usuario, showRegisterStatus, 'json')
         } else {
             alert('The form has an error.')
         }
-
     })
 
 
@@ -146,9 +145,43 @@ window.onload = (function () {
 })
 
 
-function showRegisterStatus (data) {
+function showRegisterStatus(data) {
 
-    // Ya casi
+    let status = data.status
+    let message = data.message
+    let errors = data.errors || {}
 
+    showMessage(status, message, errors);
+
+    $('#messageStatus-close').on('click', {}, () => {
+        $('#messageStatus').remove()
+    })
+
+}
+
+function showMessage(type, message, errors) {
+
+    if (type == 'ok' || type == 'error-email') {
+        $(`
+            <div id='messageStatus'>
+                <h4>${message}.</h4>
+                <div>
+                    <button id='messageStatus-close' class="btn btn-primary">Ok</button>
+                </div>
+            </div>
+        `).appendTo('#main')
+    } else {
+        var errorsArray = Object.values(errors)
+
+        $(`<div id="messageStatus">
+            <h4>${message}</h4>
+            <ul></ul>
+            <div>
+                <button id='messageStatus-close' class="btn btn-primary">Ok</button>
+            </div>
+        </div>`).appendTo('#main')
+
+        errorsArray.forEach(error => $(`<li>${error}</li>`).appendTo('#messageStatus ul'))
+    }
 }
 
