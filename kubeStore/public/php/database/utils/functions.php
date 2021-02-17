@@ -105,7 +105,7 @@
 
         $hashPassword = generatePasswordHash($password);
 
-        $query = " SELECT a.user_id, a.user_name, a.user_surname, a.user_email, b.rol_name as user_rol
+        $query = " SELECT a.user_id, a.user_name, a.user_surname, a.user_email, a.user_address, a.user_gender, b.rol_name as user_rol
             FROM `user` as a 
             INNER JOIN `rol` as b ON a.user_rol = b.rol_id 
             WHERE a.user_email = :email AND a.user_password = :password
@@ -139,9 +139,113 @@
             'user_name' => $user['user_name'],
             'user_surname' => $user['user_surname'],
             'user_email' => $user['user_email'],
+            'user_address' => $user['user_address'],
+            'user_gender' => $user['user_gender'],
             'user_rol' => $user['user_rol']
         ];
     }
 
+    function getUserById ($id) {
+
+        global $conn;
+
+        $query = "SELECT a.user_id, a.user_name, a.user_surname, a.user_email, a.user_address, a.user_gender, b.rol_name as user_rol
+            FROM `user` as a 
+            INNER JOIN `rol` as b ON a.user_rol = b.rol_id 
+            WHERE a.user_id = :id
+        ";
+
+        $stmt = $conn -> prepare($query);
+
+        try {
+
+            $stmt -> execute(['id' => $id]);
+
+            $userData = $stmt -> fetchAll();
+
+            $user = userDefault($userData[0]);
+
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return $user;
+    }
+
+    function checkActualPassword ($user) {
+
+        global $conn;
+
+        [
+            'user_id' => $id,
+            'user_actualPassword' => $actualPassword
+        ] = $user;
+
+        $hashPassword = generatePasswordHash($actualPassword);
+
+        $query = "SELECT * FROM user WHERE user_password = :password AND user_id = :id";
+
+        $stmt = $conn -> prepare($query);
+        
+        $stmt -> execute(['id' => $id, 'password' => $hashPassword]);
+
+        $records = $stmt -> rowCount();
+
+        if ($records == 1) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function updateUser ($user, $changePassword = false) {
+
+        global $conn;
+
+        [
+            'user_id' => $id,
+            'user_name' => $name,
+            'user_surname' => $surname,
+            'user_address' => $address,
+            'user_newPassword' => $newPassword
+        ] = $user;
+
+        $hashPassword = generatePasswordHash($newPassword);
+
+        if($changePassword) {
+            // Update user whith new password.
+            $query = "UPDATE user 
+            SET user_name = :name , user_surname = :surname, user_address = :address , user_password = :password
+            WHERE user_id = :id";
+
+            $stmt = $conn -> prepare($query);
+
+            try {
+                $status = $stmt -> execute(['name' => $name, 'surname' => $surname, 'address' => $address, 'password' => $hashPassword, 'id' => $id]);
+            } catch (PDOException $e) {
+                return false;
+            }            
+
+            return $status;
+
+        } else {
+            // Update user without changing password.
+            $query = "UPDATE user
+            SET user_name = :name , user_surname = :surname, user_address = :address 
+            WHERE user_id = :id";
+
+            $stmt = $conn -> prepare($query);
+                    
+            try {
+                $status = $stmt -> execute(['name' => $name, 'surname' => $surname, 'address' => $address, 'id' => $id]);
+            } catch (PDOException $e) {
+                return false;
+            }            
+            
+            return $status;
+        }
+
+    }
 
 ?>
