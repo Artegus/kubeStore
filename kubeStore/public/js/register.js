@@ -1,3 +1,5 @@
+import { showMessage } from './utils/errors.js'
+
 window.onload = (function () {
 
     $('#registerForm')[0].reset()
@@ -24,7 +26,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             firstName.removeClass('valid')
             firstName.after(`<div class='error error-firstname'>Insert your first name.${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-z]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/.test(valueTrimmed)) {
             firstName.removeClass('valid')
             firstName.after(`<div class='error error-firstname'>Please enter only letters.${errorIcon}</div>`).empty()
         } else {
@@ -42,7 +44,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             lastName.removeClass('valid')
             lastName.after(`<div class='error error-lastname'>Insert your last name.${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-z]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/.test(valueTrimmed)) {
             lastName.removeClass('valid')
             lastName.after(`<div class='error error-lastname'>Please enter only letters.${errorIcon}</div>`).empty()
         } else {
@@ -78,7 +80,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             email.removeClass('valid')
             email.after(`<div class='error error-email'>Insert your email.${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-Z0-9]+@[a-zA-z]+.[a-zA-Z]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-Z0-9]+@[a-zA-z]+\.[a-zA-Z]+/.test(valueTrimmed)) {
             email.removeClass('valid')
             email.after(`<div class='error error-email'>Insert a valid email.${errorIcon}</div>`).empty()
         } else {
@@ -140,8 +142,6 @@ window.onload = (function () {
         }
     })
 
-
-
 })
 
 
@@ -158,30 +158,3 @@ function showRegisterStatus(data) {
     })
 
 }
-
-function showMessage(type, message, errors) {
-
-    if (type == 'ok' || type == 'error-email') {
-        $(`
-            <div id='messageStatus'>
-                <h4>${message}.</h4>
-                <div>
-                    <button id='messageStatus-close' class="btn btn-primary">Ok</button>
-                </div>
-            </div>
-        `).appendTo('#main')
-    } else {
-        var errorsArray = Object.values(errors)
-
-        $(`<div id="messageStatus">
-            <h4>${message}</h4>
-            <ul></ul>
-            <div>
-                <button id='messageStatus-close' class="btn btn-primary">Ok</button>
-            </div>
-        </div>`).appendTo('#main')
-
-        errorsArray.forEach(error => $(`<li>${error}</li>`).appendTo('#messageStatus ul'))
-    }
-}
-
