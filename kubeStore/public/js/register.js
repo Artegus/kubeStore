@@ -3,7 +3,7 @@ window.onload = (function () {
     $('#registerForm')[0].reset()
 
 
-    const registerButton = $("input[type='submit']")
+    const registerButton = $("#submit")
     const firstName = $('#firstName')
     const lastName = $('#lastName')
     const address = $('#address')
@@ -60,7 +60,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             address.removeClass('valid')
             address.after(`<div class='error error-address'>Insert your address line.${errorIcon}</div>`).empty()
-        } else if (!/^[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+$/.test(valueTrimmed)) {
+        } else if (!/^[a-zA-záéíúóöüïëäÁÉÍÓÚ0-9\s]+$/.test(valueTrimmed)) {
             address.removeClass('valid')
             address.after(`<div class='error error-address'>Only letters, numbers and spaces are allowed.${errorIcon}</div>`).empty()
         } else {

@@ -1,7 +1,7 @@
 <?php
 
     include('./filters.php');
-    include('./functions.php');
+    include('../utils/functions.php');
 
     if (isset($_POST['user_name'])) {
 
