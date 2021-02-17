@@ -11,7 +11,7 @@
 <?php include('php/includes/header.php') ?>
 
 <title>KubeStore - Register</title>
-<script src="js/register.js"></script>
+<script src="js/register.js" type="module"></script>
 </head>
 
 <body>
@@ -127,7 +127,7 @@
                 <hr class="my-4">
                 <!-- Button Register -->
                 <div class="d-flex justify-content-center">
-                    <input type="submit" name="register" value="Register" class="w-50 btn btn-primary btn-lg">
+                    <input type="button" name="register" value="Register" id="submit" class="w-50 btn btn-primary btn-lg">
                 </div>
                 <!-- !Button Register -->
             </form>
