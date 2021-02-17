@@ -1,20 +1,23 @@
 /* Font */
 
-
 /* Start Btn Login */
-.btn-action a{
+
+.btn-action a {
     display: block;
     text-decoration: none;
     color: black;
     /* border: 1px solid grey;
     padding: 10px; */
 }
-.btn-action:hover a{
+
+.btn-action:hover a {
     color: white;
 }
+
 /* End Btn Login */
 
 /* Start Register Form */
+
 .form-basic {
     border-radius: 10px;
     border-bottom: 1px solid grey;
@@ -24,13 +27,88 @@
     box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
 }
 
-#main {
-    margin-top: 10vh;
-}
 /* End Register Form */
 
 @media (min-width: 1200px) {
-    .container{
+    .container {
         max-width: 600px;
     }
+}
+
+#main {
+    margin-top: 10vh;
+}
+
+.order-products {
+    margin-bottom: 25px;
+}
+
+.search-product {
+    display: flex;
+    flex-direction: column;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    padding: 2vw;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    height: min-content;
+    border: 1px solid grey;
+}
+
+.content-products {
+    margin: 20px;
+}
+
+/* Register */
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.valid {
+    box-shadow: 1px 1px 5px rgb(149, 243, 54);
+}
+
+#messageStatus {
+    width: 250px;
+    position: absolute;
+    top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border: 3px solid rgb(141, 140, 140);
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
+
+
+/* Settings user */
+
+.settings-user {
+    width: 250px;
+    position: absolute;
+    top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    border: 3px solid rgb(141, 140, 140);
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
+
+.settings-user-password {
+    display : none;
 }
