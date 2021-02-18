@@ -334,12 +334,10 @@ INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 (6, 'Z-Cube'),
 (7, 'MoFang JiaoShi'),
 (8, 'WitEden'),
-(9, 'Yon Jung Cube'),
-(10, 'Dayan Cube'),
-(11, 'Calvins Puzzle'),
-(12, 'MF8 Cube'),
-(13, 'Shengshou cube'),
-(14, 'Very Puzzle');
+(9, 'Dayan Cube'),
+(10, 'Calvins Puzzle'),
+(11, 'MF8 Cube'),
+(12, 'Very Puzzle');
 
 -- --------------------------------------------------------
 
@@ -367,23 +365,23 @@ INSERT INTO `rol` (`rol_id`, `rol_name`) VALUES
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `product_amount`, `product_price`, `product_brand`, `product_category`, `product_image`) VALUES
-(1, 'ShengShou Legend 2x2', 'ShengShou Legend 2x2 es el nuevo cubo 2x2 de la linea Legend de Shengshou, tiene la suavidad que podemos esperar de los cubos legend, es ligero y tiene un poco de corte de esquinas. Ideal para empezar a practicar speed solving con el cubo de rubik 2x2.', 10, 3.95, 13, 1, 'shengshou-legend-2x2.jpg'),
+(1, 'ShengShou Legend 2x2', 'ShengShou Legend 2x2 es el nuevo cubo 2x2 de la linea Legend de Shengshou, tiene la suavidad que podemos esperar de los cubos legend, es ligero y tiene un poco de corte de esquinas. Ideal para empezar a practicar speed solving con el cubo de rubik 2x2.', 10, 3.95, 1, 1, 'shengshou-legend-2x2.jpg'),
 (2, 'YuXin Kylin 3x3 V2 M', 'El YuXin Kylin 3x3 V2 M es la segunda versión del cubo que utilizó Collin Burns para realizar el que en su día fue el single 5.25 world récord. Este cubo cuenta con tiles para una mayor duración, tiene imanes para una mayor estabilidad y un giro suave para una experiencia de resolución rápida y agradable.', 20, 9.99, 2, 1, 'yuxin-kylin-3x3-v2-m.jpg'),
-(3, 'Shengshou Legend 3x3 S', 'El Shengshou Legend 3x3 S es un cubo 3x3 muy económico y con buen giro. Shengshou ha actualizado su versión del SS 3x3 legend para lanzar al mercado un cubo 3x3 de velocidad muy económico. Para ello a eliminado mucho plástico del diseño original del legend, han conseguido un cubo realmente ligero y con muy buen giro, aunque un poco ruidoso.', 40, 2.99, 13, 1, 'shengshou-legend-3x3-s.jpg'),
-(4, 'YJ YuLong 3x3 V2 M', 'YJ YuLong 3x3 V2 M es un cubo 3x3 magnético de nueva generación. Este cubo es una actualización del Yulong 3x3, en esta versión se ha mejorado el diseño interno añadiendo las últimas mejoras para speed solving.\r\nEl Yulong 3x3 V2 M es un cubo low cost que te sorprenderá por sus características y su rendimiento. Es un cubo con una bonita estética y en general con muy buenas sensaciones, pensarás que tienes un cubo de alta gama entre las manos y todo ello a muy buen precio.', 23, 8.49, 9, 1, 'yj-yulong-3x3-v2-m.jpg'),
+(3, 'Shengshou Legend 3x3 S', 'El Shengshou Legend 3x3 S es un cubo 3x3 muy económico y con buen giro. Shengshou ha actualizado su versión del SS 3x3 legend para lanzar al mercado un cubo 3x3 de velocidad muy económico. Para ello a eliminado mucho plástico del diseño original del legend, han conseguido un cubo realmente ligero y con muy buen giro, aunque un poco ruidoso.', 40, 2.99, 1, 1, 'shengshou-legend-3x3-s.jpg'),
+(4, 'YJ YuLong 3x3 V2 M', 'YJ YuLong 3x3 V2 M es un cubo 3x3 magnético de nueva generación. Este cubo es una actualización del Yulong 3x3, en esta versión se ha mejorado el diseño interno añadiendo las últimas mejoras para speed solving.\r\nEl Yulong 3x3 V2 M es un cubo low cost que te sorprenderá por sus características y su rendimiento. Es un cubo con una bonita estética y en general con muy buenas sensaciones, pensarás que tienes un cubo de alta gama entre las manos y todo ello a muy buen precio.', 23, 8.49, 3, 1, 'yj-yulong-3x3-v2-m.jpg'),
 (5, 'QiYi Windmill 3x3', 'El Windmill 3x3 es una modificación del cubo 3x3 muy popular, ahora qiyi nos presenta su versión de este rompecabezas que sin duda es de las mejores del mercado. Tiene los clásicos colores del warrior con esa textura mate que tanto gusta. Este cubo se resuelve como un 3x3 normal con la dificultad añadida de que tenemos que orientar los centros de las capas laterales y que se deforma al mezclarlo.', 12, 5.2, 4, 1, 'qiyi-windmill-3x3.jpg'),
 (6, 'Mofang JiaoShi Mastermorphix', 'Ahora Mofang JiaoShi ha lanzado al mercado su versión del ya conocido rompecabezas Mastermorphix. Tiene un giro muy bueno y una tonalidad de colores muy bonita.', 10, 4.95, 7, 1, 'mofang-jiaoshi-mastermorphix.jpg'),
 (7, 'Z-Cube 2x2x1', 'El Z-Cube 2x2x1 es uno de los cubos de rubik más fáciles del mundo, en realidad es un Floppy 2x2, tiene 4 combinaciones posibles por lo que con darle algunos giros lo conseguirás resolver. Gira muy bien y además su giro es suave. Disponible en fondo negro, blanco, una versión transparente en la que se aprecia el funcionamiento interno y una en fondo azul luminoso ¡Consigue el tuyo ahora!', 10, 3.95, 6, 2, 'z-cube-2x2x1.jpg'),
 (8, 'WitEden 3x3x5', 'Por fin disponible el WitEden 3x3x5, un cuboide de mucha calidad con un giro muy rápido, estable y controlable, ¿que más podemos pedir?', 10, 24.2, 8, 2, 'witeden-3x3x5.jpg'),
 (9, 'QiYi Super Floppy 3x3x1', 'El QiYi Super Floppy 3x3x1 es un cubo de muy sencilla resolución, es como una capa del cubo 3x3, pero como es la versión super floppy podemos hacer giros de 90 º haciendo que se deforme el cubo y sea un poco más interesante.', 10, 4.9, 4, 2, 'qiyi-super-floppy-3x3x1.jpg'),
-(10, 'YJ Floppy Ghost Cube', 'El Floppy es un cubo que ya todos conocemos, ahora YJ ha lanzado la versión 3x3x1 del Ghost Cube, por lo que ha conseguido un interesante rompecabezas que aunque tenga pocas piezas es muy entretenido de resolver ya que tendrás que resolverlo por formas en lugar de por colores.', 15, 4.99, 9, 2, 'yj-floppy-ghost-cube.jpg'),
-(11, 'Crazy Bad 4x4x6 Fisher Cuboid', 'El Crazy Bad 4x4x6 Fisher Cuboid es una modificación del 4x4x6 cúbico que realizó Crazy Bad Cuber.', 10, 33.9, 11, 2, 'crazy-bad-4x4x6-fisher-cuboid.jpg'),
-(12, 'YJ Super Floppy 3x3x1', 'YJ lanza su versión de 3x3x1, en este rompecabezas tan solo tenemos una capa del cubo de rubik 3x3, muy divertido y sencillo de resolver. ', 20, 4.95, 9, 2, 'yj-super-floppy-3x3x1.jpg'),
+(10, 'YJ Floppy Ghost Cube', 'El Floppy es un cubo que ya todos conocemos, ahora YJ ha lanzado la versión 3x3x1 del Ghost Cube, por lo que ha conseguido un interesante rompecabezas que aunque tenga pocas piezas es muy entretenido de resolver ya que tendrás que resolverlo por formas en lugar de por colores.', 15, 4.99, 3, 2, 'yj-floppy-ghost-cube.jpg'),
+(11, 'Crazy Bad 4x4x6 Fisher Cuboid', 'El Crazy Bad 4x4x6 Fisher Cuboid es una modificación del 4x4x6 cúbico que realizó Crazy Bad Cuber.', 10, 33.9, 10, 2, 'crazy-bad-4x4x6-fisher-cuboid.jpg'),
+(12, 'YJ Super Floppy 3x3x1', 'YJ lanza su versión de 3x3x1, en este rompecabezas tan solo tenemos una capa del cubo de rubik 3x3, muy divertido y sencillo de resolver. ', 20, 4.95, 3, 2, 'yj-super-floppy-3x3x1.jpg'),
 (13, 'QiYi QiMing Pyraminx A', 'QiYi lanza una nueva versión del QiMIng Pyraminx, mismo aspecto y rendimiento pero mejor precio. ¡No lo dejes escapar!', 15, 7.2, 4, 3, 'qiyi-qiming-pyraminx-a.jpg'),
-(14, 'Dayan Pyraminx V2', 'El Dayan Pyraminx V2 sin duda te sorprenderá, en esta ocasión Dayan lanza un Pyraminx robusto y compacto y con novedosas características.', 20, 13.95, 10, 3, 'dayan-pyraminx-v2.jpg'),
-(15, 'Hexaminx', 'Por fin, el megaminx convertido en cubo. No te pierdas esta increible modificación del clásico megaminx. ¡Ahora en kubekings!', 23, 32.5, 11, 3, 'hexaminx.jpg'),
-(16, 'VeryPuzzle Corner Only Megaminx', 'El VeryPuzzle Corner Only Megaminx es un cubo que representa tan solo las esquinas del megaminx, tiene 20 piezas a ordenar, en cada esquina encontramos 3 colores que al juntarse con los colores de sus piezas adyacentes hacen que el cubo en total tenga 12 colores. Es bastante sencillo de resolver.', 10, 39.9, 14, 3, 'verypuzzle-corner-only-megaminx.jpg'),
-(17, 'Teraminx MF8', 'El Teraminx MF8 es uno de los dodecaedros mas grandes y con mas piezas del mercardo, consigue este fantástico dodecaedro de 7x7.', 5, 99.9, 12, 3, 'teraminx-mf8.jpg'),
+(14, 'Dayan Pyraminx V2', 'El Dayan Pyraminx V2 sin duda te sorprenderá, en esta ocasión Dayan lanza un Pyraminx robusto y compacto y con novedosas características.', 20, 13.95, 9, 3, 'dayan-pyraminx-v2.jpg'),
+(15, 'Hexaminx', 'Por fin, el megaminx convertido en cubo. No te pierdas esta increible modificación del clásico megaminx. ¡Ahora en kubekings!', 23, 32.5, 10, 3, 'hexaminx.jpg'),
+(16, 'VeryPuzzle Corner Only Megaminx', 'El VeryPuzzle Corner Only Megaminx es un cubo que representa tan solo las esquinas del megaminx, tiene 20 piezas a ordenar, en cada esquina encontramos 3 colores que al juntarse con los colores de sus piezas adyacentes hacen que el cubo en total tenga 12 colores. Es bastante sencillo de resolver.', 10, 39.9, 12, 3, 'verypuzzle-corner-only-megaminx.jpg'),
+(17, 'Teraminx MF8', 'El Teraminx MF8 es uno de los dodecaedros mas grandes y con mas piezas del mercardo, consigue este fantástico dodecaedro de 7x7.', 5, 99.9, 11, 3, 'teraminx-mf8.jpg'),
 (18, 'ShengShou Teraminx', 'El Shengshou Teraminx es un dodecaedro de 7 capas, es el equivalente a un cubo de rubik 7x7 pero en dodecaedro, viene con las sticker puestas y bastante lubricado por lo que su giro es buenísimo, es uno de los rompecabezas secuenciales con mas piezas, con toda la calidad de ShengShou.', 5, 74.9, 1, 3, 'shengshou-teraminx.jpg');
 
 
