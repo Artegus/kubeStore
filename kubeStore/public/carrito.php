@@ -33,25 +33,6 @@
                     <img src="./icon/Cube-2.svg" alt="" width="30" height="30" class="d-inline-block align-top">
                     KubeStore
                 </a>
-                <!-- Start Hamburguer Menu -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- End Hamburguer Menu -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Cubicos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cuboides</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1">Minx</a>
-                        </li>
-                    </ul>
                     <div class="d-flex mb-2 mb-lg-0">
                         <a class="btn btn-outline-dark me-2 btn-action btn-user" href="#" data-id=<?=$user_id?> type="button">
                             <?= $user_name . " " . $user_surname?>
@@ -64,8 +45,6 @@
                             <span class="cart-items">4</span>
                         </a>
                     </div>
-
-                </div>
             </div>
         </nav>
     </header>
