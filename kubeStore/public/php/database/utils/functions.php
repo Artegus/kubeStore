@@ -248,4 +248,34 @@
 
     }
 
+    function getProducts () {
+
+        global $conn;
+
+        $query = "SELECT product.product_id, product.product_name, product.product_description, product.product_amount, product.product_price, 
+                        product.product_image, brand.brand_name as product_brand, category.category_name as product_category
+        FROM `product` as product 
+        INNER JOIN `brand` as brand ON product.product_brand = brand.brand_id
+        INNER JOIN `category` as category ON product.product_category = category.category_id
+        ";
+
+        try {
+
+            $stmt = $conn -> prepare($query);
+
+            $stmt -> execute();
+
+            $products = $stmt -> fetchAll();
+
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return $products;
+    }
+
+    function defaultProduct ($product) {
+
+    }
+
 ?>
