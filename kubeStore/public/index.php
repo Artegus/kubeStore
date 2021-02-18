@@ -26,25 +26,7 @@
                 <img src="./icon/Cube-2.svg" alt="" width="30" height="30" class="d-inline-block align-top">
                 KubeStore
             </a>
-            <!-- Start Hamburguer Menu -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- End Hamburguer Menu -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Cubicos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cuboides</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Minx</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex mb-2 mb-lg-0">
+                <div class="d-flex mb-lg-0">
                     <?php
                     if (isset($_SESSION['connected'])) {
                     ?>
@@ -77,8 +59,6 @@
                         </a>
                     <?php } ?>
                 </div>
-
-            </div>
         </div>
     </nav>
 </header>
@@ -95,39 +75,28 @@
         <div class="search-container">
 
             <div class="search-product">
-                <input class="form-control" type="search" id="search-input" placeholder="Search">
-                <input class="btn btn-outline-success" type="button" value='Search' id="search" />
+                <input class="form-control" type="search" id="search-input" placeholder="Search by name">
+                <!-- <input class="btn btn-outline-success" type="button" value='Search' id="search" /> -->
+                <input class="btn btn-outline-success" type="button" value='Show all products' id="reset" />
             </div>
 
             <div class="order-products">
-                Ordenar por orden
+                Order by
                 <select name="order" id="orderBy">
-                    <option value="nombreDescendente">nombre descendente</option>
-                    <option value="nombreAscendente">nombre descendente</option>
-                    <option value="precioDescente">Precio descendente</option>
-                    <option value="precioAscendente">Precio Ascendente</option>
+                    <option value="" disabled selected>Select one option</option>
+                    <option value="nameAscendent">Name ascending</option>
+                    <option value="nameDescendent">Name descending</option>
+                    <option value="priceAscendent">Price ascending</option>
+                    <option value="priceDescendent">Price descending</option>
                 </select>
             </div>
 
 
             <div class="search-input select-fabricante">
-                <label for="fabricante">Fabricante</label>
+                <label for="fabricante">Show by brand</label>
                 <select name="fabricante" id="select-fabricante">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="" disabled selected>Select one option</option>
                 </select>
-            </div>
-
-            <div class="search-input precio-min">
-                <label for="PrecioMin">Precio Min.</label>
-                <input type="number" name="precioMin" id="precioMin">
-            </div>
-
-            <div class="search-input precio-max">
-                <label for="PrecioMax">Precio Max</label>
-                <input type="number" name="precioMax" id="precioMax">
             </div>
 
         </div>
