@@ -274,8 +274,4 @@
         return $products;
     }
 
-    function defaultProduct ($product) {
-
-    }
-
 ?>
