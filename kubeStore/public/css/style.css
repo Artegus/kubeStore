@@ -112,3 +112,9 @@
 .settings-user-password {
     display : none;
 }
+
+/* Prodcuts */
+
+.products-empty {
+    text-align: center;
+}
