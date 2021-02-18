@@ -281,9 +281,9 @@ ALTER TABLE `saleInformation`
 ALTER TABLE `user`
   ADD CONSTRAINT `foreign_key_rol` FOREIGN KEY (`user_rol`) REFERENCES `rol` (`rol_id`);
 
----
---- Unique `user_email` for table `user`
----
+--
+-- Unique user_email` for table `user
+--
 
 ALTER TABLE `user` ADD UNIQUE( `user_email`); 
 
