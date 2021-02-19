@@ -130,3 +130,18 @@
 .products-empty {
     text-align: center;
 }
+
+#purchase-advise {
+    width: 250px;
+    position: absolute;
+    top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    border: 3px solid rgb(141, 140, 140);
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
