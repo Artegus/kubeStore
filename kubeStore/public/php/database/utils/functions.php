@@ -257,6 +257,7 @@
         FROM `product` as product 
         INNER JOIN `brand` as brand ON product.product_brand = brand.brand_id
         INNER JOIN `category` as category ON product.product_category = category.category_id
+        WHERE product.product_amount <> 0
         ";
 
         try {
@@ -313,6 +314,77 @@
         }
 
         return $status;
+    }
+
+    function makePurchase ($user_id, $products, $totalPrice) {
+
+        global $conn;
+        
+        $errors = [];
+        $successes = [];
+
+        // Primero. Añadir a sale la venta
+        $statusInsertSale = insertNewSale($user_id, $totalPrice);
+        // Segundo. Añadir cada producto a saleInformation
+        if ($statusInsertSale['status'] == 'ok') {
+            $sale_id = $statusInsertSale['lastId'];
+        } else {
+            return $errors[] = "Error. Insert sale";
+        }
+        
+        foreach($products as $key => $product) {
+            
+            $product_id = $product['product_id'];
+            $product_amount = $product['product_amount'];
+            $product_name = $product['product_name'];
+
+            $query = "INSERT INTO `saleInformation` (`sale_id`, `product_id`, `amount`) 
+            VALUES (:sale_id, :product_id, :product_amount)";
+
+            $stmt = $conn -> prepare($query);
+            try {
+                // Añadido a SaleInformation
+                $stmt -> execute(['sale_id'=> $sale_id, 'product_id' => $product_id, 'product_amount' => $product_amount]);
+
+                // Actualizar tabla de productos 
+                $querySubstract = "UPDATE `product` SET `product_amount` = `product_amount` - :product_amount 
+                WHERE `product_id` = :product_id";
+
+                $stmtSubstract = $conn -> prepare($querySubstract);
+
+                $result = $stmtSubstract -> execute(['product_amount' => $product_amount, 'product_id' => $product_id]);
+
+                if ($result) { // Compra de producto realizada
+                    $successes[] = "$product_name";
+                }
+
+            } catch (PDOException $e) {
+                $errors[] = "$product_name";
+            }
+
+        }
+
+        return array('success' => $successes, 'errors' => $errors);
+    }
+
+    function insertNewSale ($user_id, $totalPrice) {
+
+        global $conn;
+
+        $query = "INSERT INTO `sale` (`sale_user`, `sale_totalPrice`) 
+        VALUES (:user_id, :totalPrice)";
+
+        $stmt = $conn -> prepare($query);
+        try {
+            $status = $stmt -> execute(['user_id' => $user_id, 'totalPrice' => $totalPrice]);
+            $lastId = $conn -> lastInsertId();
+            if ($status) {
+                return array('status' => 'ok', 'lastId' => $lastId);
+            }
+        } catch (PDOException $e) {
+            return array('status' => 'error');
+        }
+
     }
 
 ?>
