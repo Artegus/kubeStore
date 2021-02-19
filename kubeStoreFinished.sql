@@ -112,6 +112,7 @@ CREATE TABLE `sale` (
 --
 
 CREATE TABLE `saleInformation` (
+  `saleInformation_id` int(11) NOT NULL,
   `sale_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `amount` int(11) NOT NULL
@@ -120,6 +121,8 @@ CREATE TABLE `saleInformation` (
 --
 -- Indexes for dumped tables
 --
+ALTER TABLE `saleInformation`
+  ADD PRIMARY KEY (`saleInformation_id`);
 
 --
 -- Indexes for table `backupProducto`
@@ -236,8 +239,6 @@ ALTER TABLE `rol`
 --
 -- AUTO_INCREMENT for table `sale`
 --
-ALTER TABLE `sale`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
