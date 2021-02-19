@@ -9,8 +9,6 @@ function logOut(event) {
             alert('An error occurred while trying to log out.')
     }
 
-    // TODO:
-    // Al desconectarse se deberá borrar el carrito del localStorage
     Storage.removeCart()
 
 }
