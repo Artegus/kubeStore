@@ -1,5 +1,6 @@
 import { logOut } from './utils/logOut.js'
 import { openUserSettings } from './utils/settingsUser.js'
+import { Storage } from './localStorage/Storage.js'
 
 window.onload = (function () {
 
