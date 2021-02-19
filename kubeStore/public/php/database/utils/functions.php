@@ -274,4 +274,45 @@
         return $products;
     }
 
+
+    function getBrands () {
+        global $conn;
+
+        $query = "SELECT brand.brand_name 
+        FROM `brand`";
+
+        try {
+            
+            $stmt = $conn -> prepare($query);
+
+            $stmt -> execute();
+
+            $brands = $stmt -> fetchAll();
+
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return $brands;
+
+    }
+
+
+    function deleteUserById ($id) {
+
+        global $conn;
+
+        $query = "DELETE FROM user WHERE user_id = :id";
+
+        $stmt = $conn -> prepare($query);
+
+        try {
+            $status = $stmt -> execute(['id' => $id]);
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return $status;
+    }
+
 ?>

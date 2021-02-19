@@ -1,5 +1,5 @@
 import { showMessage } from './errors.js'
-
+import { logOut } from './logOut.js'
 function openUserSettings (event) {
 
     let id = event.data.user_id
@@ -42,6 +42,15 @@ function showSettings (user) {
             </div>
         </div>
         <hr/>
+        <input type="button" value="Delete account" id="delete-account" class="btn btn-outline-danger">
+        <div class='settings-delete-account'>
+            <p>Are you sure to delete your account?</p>
+            <div class='settings-user-input'>
+                <input type='button' value='Yes' id='deleteAcc' class="btn btn-outline-danger"/>
+                <input type='button' value='No' id='close-delete-account' class="btn btn-outline-success"/>
+            </div>
+        </div>
+        <hr/>
 
         <input type="button" name="saveChanges" value="Save Changes" id="saveChanges" class="btn btn-outline-success">
         <input type="button" value="Close" id="close-settings" class="btn btn-outline-danger">
@@ -50,6 +59,22 @@ function showSettings (user) {
 
     $('#close-settings').on('click', {} , () => {
         $('.settings-user').remove()
+    })
+
+    $('#delete-account').on('click', {}, () => {
+        $('.settings-delete-account').toggle()
+        if ($('#delete-account').prop('value') == 'Delete account') {
+            $('#delete-account').prop('value', 'Go back')
+        } else {
+            $('#delete-account').prop('value', 'Delete account')
+        }
+    })
+
+    $('#deleteAcc').on('click', {'id' : user.user_id}, deleteAccount)
+
+    $('#close-delete-account').on('click', {}, () => {
+        $('.settings-delete-account').toggle()
+        $('#delete-account').prop('value', 'Delete account')
     })
 
     $('#change-password').on('click', {}, () => {
@@ -124,6 +149,19 @@ function showChangeStatus (data) {
 
 }
 
+function deleteAccount (event) {
+    let id = event.data.id
+
+    $.post('php/database/user/deleteAccount.php', {'id' : id, 'delete' : 'ok'}, checkDeleteStatus, 'json')
+}
+
+function checkDeleteStatus (data) {
+    if (data.status == 'ok') {
+        logOut();
+    } else {
+        alert(data)
+    }
+}
 
 function checkChanges () {
     // Para guardar los cambios
