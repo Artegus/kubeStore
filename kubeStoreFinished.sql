@@ -102,7 +102,7 @@ CREATE TABLE `sale` (
   `sale_id` int(11) NOT NULL,
   `sale_user` int(11) NOT NULL,
   `sale_timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sale_totalPrice` int(11) NOT NULL
+  `sale_totalPrice` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
