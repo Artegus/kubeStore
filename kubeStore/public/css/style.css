@@ -1,5 +1,9 @@
 /* Font */
 
+.move-rigth{
+    align-items: flex-end;
+}
+
 /* Start Btn Login */
 
 .btn-action a {
@@ -46,6 +50,7 @@
 .search-product {
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
 
 .products {
@@ -57,13 +62,16 @@
 .search-container {
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    border-radius: 10px;
     width: min-content;
     height: min-content;
-    border: 1px solid grey;
+    box-shadow: 1px 1px 5px rgb(145, 145, 145);
 }
 
 .content-products {
     margin: 20px;
+    width: 80vw;
 }
 
 /* Register */
@@ -111,6 +119,10 @@
 
 .settings-user-password {
     display : none;
+}
+
+.settings-delete-account {
+    display: none;
 }
 
 /* Prodcuts */
