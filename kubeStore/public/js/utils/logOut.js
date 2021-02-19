@@ -1,3 +1,4 @@
+import { Storage } from '../localStorage/Storage.js'
 function logOut(event) {
 
     $.post('php/database/utils/logOut.php', {}, reloadPage, 'json')
@@ -7,6 +8,10 @@ function logOut(event) {
             location.reload() :
             alert('An error occurred while trying to log out.')
     }
+
+    // TODO:
+    // Al desconectarse se deberá borrar el carrito del localStorage
+    Storage.removeCart()
 
 }
 
