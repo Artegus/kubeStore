@@ -35,7 +35,6 @@
                         </a>
                         <a href="./carrito.php" class="btn btn-cart">
                             <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-items">4</span>
                         </a>
                         <?php
                             if ($user_rol == 'admin') {
@@ -105,21 +104,6 @@
 
         <!-- Start Content Products -->
         <div class="row  row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 content-products">
-
-            <!-- Start Card item -->
-            <!-- <div class="col product-card">
-                <div class="card text-dark bg-light">
-                    <img src="./images/shengshou-teraminx.jpg" class="card-img-top image-default" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title item-title">Cubo - Hekoo 6x6</h5>
-                        <p class="card-text item-brand">Fabricante: Hekoo Cubes </p>
-                        <p class="card-text item-price">Price: 10.20€</p>
-                        <a href="#" class="btn me-2 btn-primary">+ info</a>
-                        <a href="#" class="btn me-2 btn-warning">Add to cart <i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                </div>
-            </div> -->
-            <!-- End Card item -->
 
         </div>
 
