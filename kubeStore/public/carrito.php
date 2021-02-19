@@ -37,12 +37,12 @@
                         <a class="btn btn-outline-dark me-2 btn-action btn-user" href="#" data-id=<?=$user_id?> type="button">
                             <?= $user_name . " " . $user_surname?>
                         </a>
-                        <a class="btn btn-outline-dark me-2 btn-action btn-logout">
-                            Log out
-                        </a>
-                        <a href="./carrito.html" class="btn btn-cart">
+                        <a href="./carrito.php" class="btn btn-cart">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cart-items">4</span>
+                        </a>
+                        <a class="btn btn-outline-dark me-2 btn-action btn-logout">
+                            Log out
                         </a>
                     </div>
             </div>
