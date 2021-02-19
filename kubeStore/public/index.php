@@ -73,7 +73,7 @@
 
         <!-- Start search container -->
         <div class="search-container">
-
+            <h3>Filters</h3>
             <div class="search-product">
                 <input class="form-control" type="search" id="search-input" placeholder="Search by name">
                 <!-- <input class="btn btn-outline-success" type="button" value='Search' id="search" /> -->
