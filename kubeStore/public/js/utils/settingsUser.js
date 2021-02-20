@@ -10,9 +10,6 @@ function openUserSettings (event) {
 
 function showSettings (user) {
     
-    var userData = user;
-    console.log(user)
-
     $('.settings-user').remove();
 
     $(`<div class='settings-user'>
@@ -102,7 +99,6 @@ function showSettings (user) {
                     'user_surname': formArray[1].value.trim(),
                     'user_address': formArray[2].value.trim(),
                 }
-                console.log(usuario)
                 $.post('php/database/user/updateUser.php', usuario, showChangeStatus, 'json')
             } else {
                 alert('You have an error in the changes.')
@@ -123,7 +119,6 @@ function showSettings (user) {
                     'user_newPassword' : formArray[3].value,
                     'user_actualPassword' : formArray[4].value
                 }
-                console.log(usuario)
                 $.post('php/database/user/updateUser.php', usuario, showChangeStatus, 'json')
             } else {
                 alert('You have an error in changes')
