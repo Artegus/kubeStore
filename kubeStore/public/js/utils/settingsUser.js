@@ -146,8 +146,14 @@ function showChangeStatus (data) {
 
 function deleteAccount (event) {
     let id = event.data.id
-
-    $.post('php/database/user/deleteAccount.php', {'id' : id, 'delete' : 'ok'}, checkDeleteStatus, 'json')
+    // TODO:
+    // Un admin no puede eliminar su cuenta
+    if ($('.btn-admin').is(':visible')) {
+        alert('You cannot delete yourself.')
+    } else {
+        $.post('php/database/user/deleteAccount.php', {'id' : id, 'delete' : 'ok'}, checkDeleteStatus, 'json')
+    }
+    
 }
 
 function checkDeleteStatus (data) {
