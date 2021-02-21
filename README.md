@@ -18,13 +18,14 @@ Si usa docker:
 2. Dentro de esta carpeta deberá crear una nueva con el nombre de `mysql-data`.
 3. Asegurarse de dar permisos de escritura y lectura a la carpeta `kubeStore/` y `mysql-data/` puede usar `sudo chmod 777 -R directory/`
 4. Situarse en la carpeta donde se encuentra `docker-compose.yml` e iniciar el contenedor con `sudo docker-compose up`
-5. Una vez iniciado, crear la base de datos con nombre `kubeStore` y la codificación debe ser `utf8mb4_bin` a traves de phpMyAdmin (http://localhost:9080)
+5. Una vez iniciado, crear la base de datos con nombre `kubeStore` con codificación `utf8mb4_bin` a traves de phpMyAdmin (http://localhost:9080)
 6. Insertar las sentencias sql `actual_kubeStore.sql` situandose en la base de datos creada.
 7. Ingresar en la página (http://localhost:8080)
 
 
-Si se usa xampp o wamp 
-1. Deberá modificar los parametros de la conexión a la base de datos `kubeStore/public/php/database/db.php` (`$db_host` Host) (`$db_username` Usuario) (`$db_password` Contraseña del usuario) (`$db_name` Nombre de la base de datos)
+Si se usa xampp
+1. Solo será necesario que se introduzca la carpeta public en htdocs.
+1. Deberá modificar los parametros de la conexión a la base de datos `kubeStore/public/php/database/db.php` (`$db_host='localhost'`) (`$db_username='root'`) (`$db_password=''`) (`$db_name='kubestore'`)
 
 2. Crear la base de datos `kubeStore` con codificación `utf8mb4_bin` (si se usa otro nombre se deberán modificar los parametros de conexión del archivo `db.php`).
 3. Ejecutar las sentencias sql del archivo `actual_kubeStore.sql` situandose en la base de datos creada. 
