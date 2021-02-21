@@ -387,4 +387,294 @@
 
     }
 
+    function getUsersData () {
+
+        global $conn;
+
+        $query = "SELECT user.user_id, user.user_name, user.user_surname, gender.gender_name as user_gender, user.user_address, 
+                        user.user_email, user.user_createdAt , rol.rol_name as user_rol 
+            FROM `user` as user 
+            INNER JOIN `rol` as rol ON user.user_rol = rol.rol_id 
+            INNER JOIN `gender` as gender ON user.user_gender = gender.gender_id";
+
+        $stmt = $conn -> prepare($query);
+
+        try {
+
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => 'error', 'data' => 'empty'];
+        }
+    }
+
+    function getHistoryUsersData () {
+        global $conn;
+
+        $query = "SELECT * FROM `backupUser`";
+
+        $stmt = $conn -> prepare($query);
+
+        try {
+
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => 'error', 'data' => 'empty'];
+        }
+
+    }
+
+    /* Panel control*/
+
+    function updateUserByAdmin ($user, $changePassword = false) {
+
+        global $conn;
+
+        [
+            'user_id' => $id,
+            'user_name' => $name,
+            'user_surname' => $surname,
+            'user_address' => $address,
+            'user_email' => $email,
+            'user_newPassword' => $newPassword
+        ] = $user;
+
+        $hashPassword = generatePasswordHash($newPassword);
+
+        if($changePassword) {
+            // Update user whith new password.
+            $query = "UPDATE user 
+            SET user_name = :name , user_surname = :surname, user_address = :address , user_password = :password, user_email = :email
+            WHERE user_id = :id";
+
+            $stmt = $conn -> prepare($query);
+
+            try {
+                $status = $stmt -> execute(['name' => $name, 'surname' => $surname, 'address' => $address, 'email' => $email, 'password' => $hashPassword, 'id' => $id]);
+            } catch (PDOException $e) {
+                return false;
+            }            
+
+            return $status;
+
+        } else {
+            // Update user without changing password.
+            $query = "UPDATE user
+            SET user_name = :name , user_surname = :surname, user_address = :address, user_email = :email
+            WHERE user_id = :id";
+
+            $stmt = $conn -> prepare($query);
+                    
+            try {
+                $status = $stmt -> execute(['name' => $name, 'surname' => $surname, 'email' => $email, 'address' => $address, 'id' => $id]);
+            } catch (PDOException $e) {
+                return false;
+            }            
+            
+            return $status;
+        }
+
+    }
+
+    function removeBackupRegisterById($registerId) {
+
+        global $conn;
+
+        $query = "DELETE FROM `backupUser` WHERE back_user_id = :id";
+
+        $stmt = $conn -> prepare($query);
+
+        try {
+            $status = $stmt -> execute(['id' => $registerId]);
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return $status;
+    }
+
+    function addNewUSer ($user) {
+
+        global $conn;
+
+        [
+            'user_name' => $name,
+            'user_surname' => $surname,
+            'user_email' => $email,
+            'user_address' => $address,
+            'user_rol' => $rol,
+            'user_gender' => $gender,
+            'user_password' => $password
+        ] = $user;
+
+        $hashPassword = generatePasswordHash($password);
+
+        $query = "INSERT INTO `user` (`user_name`, `user_surname`, `user_gender`, `user_address`, `user_email`, `user_password`, `user_rol`) 
+        VALUES (:user_name, :user_surname, :user_gender, :user_address, :user_email, :user_password, :user_rol); ";
+
+        $stmt = $conn -> prepare($query);
+
+        try {
+            $status = $stmt -> execute([
+                'user_name' => $name, 
+                'user_surname' => $surname, 
+                'user_gender' => $gender, 
+                'user_address' => $address, 
+                'user_email' => $email, 
+                'user_password' => $hashPassword, 
+                'user_rol' => $rol]);
+        } catch (PDOException $e) {
+            return false;
+        }
+        return $status;
+    }
+
+    function getAllProducts () {
+        global $conn;
+
+        $query =  "SELECT product.product_id, product.product_name, product.product_description, product.product_amount, product.product_price, 
+                product.product_image, brand.brand_name as product_brand, category.category_name as product_category
+            FROM `product` as product 
+            INNER JOIN `brand` as brand ON product.product_brand = brand.brand_id
+            INNER JOIN `category` as category ON product.product_category = category.category_id
+        ";
+
+        try {
+            $stmt = $conn -> prepare($query);
+            
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => $status, 'data' => ''];
+        }
+
+    }
+
+    function getAllBrands () {
+        global $conn;
+        
+        $query = "SELECT * from brand";
+
+        try {
+
+            $stmt = $conn -> prepare(($query));
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => '$status', 'data' => ''];
+        }
+
+    }
+
+    function getAllCategories () {
+        global $conn;
+        
+        $query = "SELECT * from category";
+
+        try {
+
+            $stmt = $conn -> prepare(($query));
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => '$status', 'data' => ''];
+        }
+    }
+
+    function getHistoryProductsData () {
+
+        global $conn;
+        
+        $query = "SELECT * from backupProducto";
+
+        try {
+
+            $stmt = $conn -> prepare(($query));
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => '$status', 'data' => ''];
+        }        
+
+    }
+
+    function getSales () {
+
+        global $conn;
+
+        $query = "SELECT b.user_name as sale_buyers_name, b.user_email as sale_buyers_email, a.sale_timeStamp, a.sale_totalPrice, a.sale_id 
+        FROM `sale` AS a 
+        INNER JOIN `user` AS b WHERE a.sale_user = b.user_id";
+
+        try {
+            $stmt = $conn -> prepare($query);
+            $status = $stmt -> execute();
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => '$status', 'data' => ''];
+        }      
+
+    }
+
+    function getSaleInformationById ($id) {
+        
+        global $conn;
+
+        $query = "SELECT a.sale_id as sale_id, b.back_product_name as sale_product_name, a.amount as sale_product_amount, FORMAT((b.back_product_price * a.amount), 2) as sale_product_totalPrice
+            FROM `saleInformation` AS a
+            INNER JOIN `backupProducto` AS b WHERE b.back_product_id = a.product_id 
+            AND a.sale_id = :id";
+        
+        try {
+
+            $stmt = $conn -> prepare($query);
+            $status = $stmt -> execute(['id' => $id]);
+
+            if ($status) {
+                $data = $stmt -> fetchAll();
+                return ['status' => 'ok', 'data' => $data];
+            }
+
+        } catch (PDOException $e) {
+            return ['status' => '$status', 'data' => ''];
+        }
+
+    }
+
 ?>
