@@ -677,4 +677,160 @@
 
     }
 
+    function uploadImage ($image) {
+        [
+            'name' => $name,
+            'tmp_name' => $tmpName
+        ] = $image;
+
+        if (is_uploaded_file($tmpName)) {
+            $dir = "../../../images/";
+        
+            $fileDestination = $dir . $name;
+            $actualDir = getcwd(); // Usar esta
+            $status = move_uploaded_file($tmpName, $fileDestination);
+        } else {
+            return false;
+        }
+
+        return $status;
+    }
+
+    function addNewProduct ($product) {
+
+        global $conn;
+
+        [
+            'product_name' => $name,
+            'product_price' => $price,
+            'product_amount' => $amount,
+            'product_description' => $description,
+            'product_category' => $category,
+            'product_brand' => $brand,
+            'product_image' => $image
+        ] = $product;
+            
+        $queryAddProduct = "INSERT INTO `product` 
+        (`product_name`, `product_description`, `product_amount`, `product_price`, `product_brand`, `product_category`, `product_image`) 
+        VALUES (:name, :description, :amount, :price, :brand, :category, :image)";
+
+        try {
+            $stmt = $conn -> prepare($queryAddProduct);
+
+            $status = $stmt -> execute([
+                'name' => $name, 
+                'description' => $description, 
+                'amount' => $amount, 
+                'price' => $price,
+                'brand' => $brand,
+                'category' => $category,
+                'image' => $image 
+                ]);
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return $status;
+    }
+
+    function updateProduct ($product, $withImage = false) {
+
+        global $conn;
+
+        [
+            'product_name' => $name,
+            'product_description' => $description,
+            'product_amount' => $amount,
+            'product_price' => $price,
+            'product_brand' => $brand,
+            'product_category' => $category,
+            'product_image' => $image,
+            'product_id' => $id
+        ] = $product;
+
+
+        if ($withImage) { // Update con foto
+            $query = "UPDATE `product` SET 
+                `product_name` = :name , 
+                `product_description` = :description , 
+                `product_amount` = :amount , 
+                `product_price` = :price , 
+                `product_brand` = :brand , 
+                `product_category` = :category , 
+                `product_image` = :image 
+                WHERE `product_id` = :id ";
+
+            $stmt = $conn -> prepare($query);
+
+            try {
+                $status = $stmt -> execute([
+                    'name' => $name, 
+                    'description' => $description, 
+                    'amount' => $amount,
+                    'price' => $price,
+                    'brand' => $brand,
+                    'category' => $category,
+                    'image' => $image,
+                    'id' => $id]);
+                if ($status) {
+                    return $status;
+                }
+            } catch(PDOException $e) {
+                return false;
+            }
+
+        } else {
+            // Update sin foto
+            $query = "UPDATE `product` SET 
+                `product_name` = :name , 
+                `product_description` = :description , 
+                `product_amount` = :amount , 
+                `product_price` = :price , 
+                `product_brand` = :brand , 
+                `product_category` = :category
+                WHERE `product_id` = :id ";
+
+            $stmt = $conn -> prepare($query);
+                    
+            try {
+                $status = $stmt -> execute([
+                    'name' => $name, 
+                    'description' => $description, 
+                    'amount' => $amount,
+                    'price' => $price,
+                    'brand' => $brand,
+                    'category' => $category,
+                    'id' => $id]);
+                if ($status) {
+                    return $status;
+                }
+            } catch(PDOException $e) {
+                return false;
+            }
+
+        }
+
+
+    }
+
+    function removeProductById ($id) {
+        
+        global $conn;
+
+        $query = "DELETE FROM product WHERE product_id = :id";
+
+        try {
+            $stmt = $conn -> prepare($query);
+
+            $status = $stmt -> execute(['id' => $id]);
+
+            if ($status) {
+                return $status;
+            }
+        } catch (PDOException $e) {
+            return false;
+        }
+
+    }
+
 ?>
