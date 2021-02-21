@@ -72,5 +72,41 @@ $validateString = array(
 
 
 // Add new user
+// Add new product 
+
+    $filtersValidateAddNewProduct = array(
+        'product_name' => array(
+            'filter' => FILTER_VALIDATE_REGEXP,
+            'options' => array(
+                'regexp' => "/^[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ0-9\s]+$/"
+            )
+        ),
+        'product_price' => FILTER_VALIDATE_FLOAT,
+        'product_amount' => FILTER_VALIDATE_INT,
+        'product_description' => FILTER_UNSAFE_RAW,
+        'product_category' => FILTER_VALIDATE_INT,
+        'product_brand' => FILTER_VALIDATE_INT,
+        'product_image' => FILTER_UNSAFE_RAW
+    );
+// Add new product
+
+// Update product
+
+    $filtersValidateUpdateProduct = array(
+        'product_id' => FILTER_VALIDATE_INT,
+        'product_name' => array(
+            'filter' => FILTER_VALIDATE_REGEXP,
+            'options' => array(
+                'regexp' => "/^[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ0-9\s]+$/"
+            )
+        ),
+        'product_price' => FILTER_VALIDATE_FLOAT,
+        'product_amount' => FILTER_VALIDATE_INT,
+        'product_description' => FILTER_UNSAFE_RAW,
+        'product_category' => FILTER_VALIDATE_INT,
+        'product_brand' => FILTER_VALIDATE_INT,
+        'product_image' => FILTER_UNSAFE_RAW
+    )
+
 
 ?> 
