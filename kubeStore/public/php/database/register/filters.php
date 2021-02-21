@@ -3,7 +3,7 @@
     $validateString = array(
         'filter' => FILTER_VALIDATE_REGEXP,
         'options' => array(
-            'regexp' => "/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/"
+            'regexp' => "/[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ\s]+/"
         )
     );
 
@@ -21,7 +21,7 @@
         'user_address' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
             'options' => array(
-                'regexp' => "/^[a-zA-záéíúóöüïëäÁÉÍÓÚ0-9\s]+$/"
+                'regexp' => "/^[a-zA-záéíúóöüïëäÁÉÍÓÚ0ñÑ0-9\s]+$/"
             )
         ),
         'user_email' => array(
@@ -30,7 +30,7 @@
         'user_password' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
             'options' => array(
-                'regexp' => "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/"
+                'regexp' => "/^(?=.*[a-záéíúóñ])(?=.*[A-ZÁÉÍÚÓÑ])(?=.*\d)[a-záéíúóñA-ZÁÉÍÓÚÑ\d]{8,}$/"
             )
         )
     );

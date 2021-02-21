@@ -26,7 +26,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             firstName.removeClass('valid')
             firstName.after(`<div class='error error-firstname'>Insert your first name.${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ\s]+/.test(valueTrimmed)) {
             firstName.removeClass('valid')
             firstName.after(`<div class='error error-firstname'>Please enter only letters.${errorIcon}</div>`).empty()
         } else {
@@ -44,7 +44,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             lastName.removeClass('valid')
             lastName.after(`<div class='error error-lastname'>Insert your last name.${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ\s]+/.test(valueTrimmed)) {
             lastName.removeClass('valid')
             lastName.after(`<div class='error error-lastname'>Please enter only letters.${errorIcon}</div>`).empty()
         } else {
@@ -62,7 +62,7 @@ window.onload = (function () {
         if (valueTrimmed == '') {
             address.removeClass('valid')
             address.after(`<div class='error error-address'>Insert your address line.${errorIcon}</div>`).empty()
-        } else if (!/^[a-zA-záéíúóöüïëäÁÉÍÓÚ0-9\s]+$/.test(valueTrimmed)) {
+        } else if (!/^[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ0-9\s]+$/.test(valueTrimmed)) {
             address.removeClass('valid')
             address.after(`<div class='error error-address'>Only letters, numbers and spaces are allowed.${errorIcon}</div>`).empty()
         } else {
@@ -95,7 +95,7 @@ window.onload = (function () {
 
         $('.error-password').remove()
 
-        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(value)) {
+        if (!/^(?=.*[a-záéíúóñ])(?=.*[A-ZÁÉÍÓÚÑ])(?=.*\d)[a-záéíúóñA-ZÁÉÍÓÚÑ\d]{8,}$/.test(value)) {
             password.removeClass('valid')
             password.after(`<div class='error error-password'>Only letters and numbers are allowed. Password required minimum 8 characters, at least one uppercase letter, one lowercase letter and one number.${errorIcon}</div>`).empty()
         } else {
