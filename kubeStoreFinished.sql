@@ -62,6 +62,11 @@ CREATE TABLE `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
+CREATE TABLE `gender` (
+  `gender_id` int(11) NOT NULL,
+  `gender_name` varchar(40) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
 --
 -- Table structure for table `user`
 --
@@ -169,6 +174,9 @@ ALTER TABLE `product`
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`rol_id`);
 
+ALTER TABLE `gender`
+  ADD PRIMARY KEY (`gender_id`);
+
 --
 -- Indexes for table `sale`
 --
@@ -236,6 +244,9 @@ ALTER TABLE `product`
 ALTER TABLE `rol`
   MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
+ALTER TABLE `gender`
+  MODIFY `gender_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
 --
 -- AUTO_INCREMENT for table `sale`
 --
@@ -281,7 +292,7 @@ ALTER TABLE `saleInformation`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `foreign_key_rol` FOREIGN KEY (`user_rol`) REFERENCES `rol` (`rol_id`);
-
+  ADD CONSTRAINT `foreign_key_gender` FOREIGN KEY (`user_gender`) REFERENCES `gender` (`gender_id`);
 --
 -- Unique user_email` for table `user
 --
@@ -360,6 +371,11 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 INSERT INTO `rol` (`rol_id`, `rol_name`) VALUES
 (1, 'usuario'),
 (2, 'administrador');
+
+INSERT INTO `gender` (`gender_id`, `gender_name`) VALUES
+(1, 'male'),
+(2, 'female'),
+(3, 'none');
 
 --
 -- Dumping data for table `product`
