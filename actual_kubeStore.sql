@@ -409,3 +409,6 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `pro
 --
 -- Dumping data for table `backupProducto`
 --
+INSERT INTO `user` 
+(`user_name`, `user_surname`, `user_gender`, `user_address`, `user_email`, `user_password`, `user_rol`) 
+VALUES ('default', 'user', '3', 'Space', 'default@user.com', '88f75b58dc9b3a1c09c5f39ff6e8c0e1', '2'); 
