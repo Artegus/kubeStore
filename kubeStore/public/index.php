@@ -33,16 +33,16 @@
                         <a class="btn btn-outline-dark me-2 btn-action btn-user" href="#" data-id=<?=$user_id?> type="button">
                             <?= $user_name . " " . $user_surname?>
                         </a>
-                        <a href="./carrito.php" class="btn btn-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>
                         <?php
-                            if ($user_rol == 'admin') {
+                            if ($user_rol == 'administrador') {
                         ?>
-                            <a class="btn btn-outline-dark me-2 btn-action btn-user" href="#" data-id=<?=$user_id?> type="button">
+                            <a class="btn btn-outline-dark me-2 btn-action btn-user" href="./controlPanel.php" data-id=<?=$user_id?> type="button">
                                 Control Panel
                             </a>
                         <?php }?>
+                        <a href="./carrito.php" class="btn btn-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
                         <a class="btn btn-outline-dark me-2 btn-action btn-logout">
                             Log out
                         </a>
