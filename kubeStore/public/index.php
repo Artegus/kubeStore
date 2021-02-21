@@ -36,7 +36,7 @@
                         <?php
                             if ($user_rol == 'administrador') {
                         ?>
-                            <a class="btn btn-outline-dark me-2 btn-action btn-user" href="./controlPanel.php" data-id=<?=$user_id?> type="button">
+                            <a class="btn btn-outline-dark me-2 btn-action btn-user btn-admin" href="./controlPanel.php" data-id=<?=$user_id?> type="button">
                                 Control Panel
                             </a>
                         <?php }?>
