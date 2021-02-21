@@ -1,6 +1,6 @@
 /* Font */
 
-.move-rigth{
+.move-rigth {
     align-items: flex-end;
 }
 
@@ -99,7 +99,6 @@
     background-color: whitesmoke;
 }
 
-
 /* Settings user */
 
 .settings-user {
@@ -111,21 +110,20 @@
     left: 0;
     right: 0;
     text-align: center;
-
     border: 3px solid rgb(141, 140, 140);
     box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
     background-color: whitesmoke;
 }
 
 .settings-user-password {
-    display : none;
+    display: none;
 }
 
 .settings-delete-account {
     display: none;
 }
 
-/* Prodcuts */
+/* Products */
 
 .products-empty {
     text-align: center;
@@ -140,7 +138,87 @@
     left: 0;
     right: 0;
     text-align: center;
+    border: 3px solid rgb(141, 140, 140);
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
 
+/* Control panel */
+
+.table-content {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 2vw;
+}
+
+.table-container-index {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 10px;
+    width: min-content;
+    height: min-content;
+    box-shadow: 1px 1px 5px rgb(145, 145, 145);
+}
+
+.table-container-index ul button {
+    margin-bottom: 10px;
+}
+
+.content-tables {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px;
+    width: 80vw;
+}
+
+.control-panel-edit-user {
+    width: 250px;
+    position: absolute;
+    top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border: 3px solid rgb(141, 140, 140);
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
+/*Sale info*/
+.title-receipt {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.table-sale-information {
+    width: 100vh;
+    position: absolute;
+    top: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border: 3px solid rgb(141, 140, 140);
+    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
+
+/*Sale info*/
+/* Product panel*/
+.control-panel-add-product {
+    width: 250px;
+    position: absolute;
+    top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     border: 3px solid rgb(141, 140, 140);
     box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
     background-color: whitesmoke;
