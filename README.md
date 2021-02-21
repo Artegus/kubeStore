@@ -8,7 +8,7 @@
 ## Base de datos
 
 - [Modelo entidad - relación ](diagrams/kubeStore.png)
-- [Modelo entidad - relación ](uml/kubeStore_2.png)
+- [Modelo entidad - relación ](diagrams/kubeStore_2.png)
 
 ## Configuración
 
