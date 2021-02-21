@@ -519,8 +519,6 @@ function showNewUserStatus (reponse) {
     if (status == 'ok') {
         updateUserTables()
         $('.control-panel-edit-user').remove();
-    } else {
-
     }
 
     showMessage(status, message, errors);
