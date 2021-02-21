@@ -201,7 +201,11 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+ALTER TABLE `sale`
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
+ALTER TABLE `saleInformation`
+  MODIFY `saleInformation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 --
 -- AUTO_INCREMENT for table `backupProducto`
 --
@@ -291,7 +295,7 @@ ALTER TABLE `saleInformation`
 -- Constraints for table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `foreign_key_rol` FOREIGN KEY (`user_rol`) REFERENCES `rol` (`rol_id`);
+  ADD CONSTRAINT `foreign_key_rol` FOREIGN KEY (`user_rol`) REFERENCES `rol` (`rol_id`),
   ADD CONSTRAINT `foreign_key_gender` FOREIGN KEY (`user_gender`) REFERENCES `gender` (`gender_id`);
 --
 -- Unique user_email` for table `user
