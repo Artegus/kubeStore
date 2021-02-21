@@ -24,7 +24,7 @@ Si usa docker:
 
 
 Si se usa xampp
-1. Solo será necesario que se introduzca la carpeta public en htdocs.
+1. Solo será necesario que se introduzca la carpeta `public` en htdocs.
 1. Deberá modificar los parametros de la conexión a la base de datos `kubeStore/public/php/database/db.php` (`$db_host='localhost'`) (`$db_username='root'`) (`$db_password=''`) (`$db_name='kubestore'`)
 
 2. Crear la base de datos `kubeStore` con codificación `utf8mb4_bin` (si se usa otro nombre se deberán modificar los parametros de conexión del archivo `db.php`).
