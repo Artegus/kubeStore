@@ -184,7 +184,7 @@ function checkChanges () {
         if (valueTrimmed == '') {
             name.removeClass('valid')
             name.after(`<div class='error error-name'>Insert your name. ${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ\s]+/.test(valueTrimmed)) {
             name.removeClass('valid')
             name.after(`<div class='error error-name'>Please enter only letters. ${errorIcon}</div>`).empty()
         } else {
@@ -202,7 +202,7 @@ function checkChanges () {
         if (valueTrimmed == '') {
             surname.removeClass('valid')
             surname.after(`<div class='error error-surname'>Insert your surname. ${errorIcon}</div>`).empty()
-        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚ\s]+/.test(valueTrimmed)) {
+        } else if (!/[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ\s]+/.test(valueTrimmed)) {
             surname.removeClass('valid')
             surname.after(`<div class='error error-surname'>Please enter only letters. ${errorIcon}</div>`).empty()
         } else {
@@ -220,7 +220,7 @@ function checkChanges () {
         if (valueTrimmed == '') {
             address.removeClass('valid')
             address.after(`<div class='error error-address'>Insert your address line.${errorIcon}</div>`).empty()
-        } else if (!/^[a-zA-záéíúóöüïëäÁÉÍÓÚ0-9\s]+$/.test(valueTrimmed)) {
+        } else if (!/^[a-zA-záéíúóöüïëäÁÉÍÓÚñÑ0-9\s]+$/.test(valueTrimmed)) {
             address.removeClass('valid')
             address.after(`<div class='error error-address'>Only letters, numbers and spaces are allowed.${errorIcon}</div>`).empty()
         } else {
@@ -234,7 +234,7 @@ function checkChanges () {
 
         $('.error-newPassword').remove()
 
-        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(value)) {
+        if (!/^(?=.*[a-záéíúóñ])(?=.*[A-ZÁÉÍÓÚÑ])(?=.*\d)[a-záéíúóñA-ZÁÉÍÚÓÑ\d]{8,}$/.test(value)) {
             newPassword.removeClass('valid')
             newPassword.after(`<div class='error error-newPassword'>Only letters and numbers are allowed. newPassword required minimum 8 characters, at least one uppercase letter, one lowercase letter and one number. ${errorIcon}</div>`).empty()
         } else {
