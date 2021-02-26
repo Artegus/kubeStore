@@ -4,7 +4,7 @@
     $db_username = "root";  // Cambiar si es necesario
     $db_password = "root";  // Cambiar si es necesario
 
-    $db_name = "kubeStore"; // Cambiar si se desea
+    $db_name = "kubestore";  // Cambiar si se desea
     $db_charset = "utf8mb4";
 
     $dsn = "mysql:host={$db_host};dbname={$db_name};charset={$db_charset}";
